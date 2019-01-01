@@ -109,6 +109,8 @@ dynamodb.putItem(params, function(err, data) {
 ## テーブル一覧の取得
 
 ```
+AWS.config.endpoint = new AWS.Endpoint('http://localhost:8000');
+var dynamodb = new AWS.DynamoDB();
 dynamodb.listTables().eachPage(function(err, data) {
     if (err) {
         ppJson(err); // an error occurred
@@ -122,10 +124,13 @@ dynamodb.listTables().eachPage(function(err, data) {
 ## アイテム取得
 
 ```
+AWS.config.endpoint = new AWS.Endpoint('http://localhost:8000');
+var dynamodb = new AWS.DynamoDB();
 var params = {
-    TableName: 'Persons',
+    TableName: 'Music',
     Key: { 
-        Id: {N:'5'}
+        Artist: {S:'No One You Know'},
+        SongTitle:{S:"Call Me Today"},
     }
 };
 dynamodb.getItem(params, function(err, data) {
