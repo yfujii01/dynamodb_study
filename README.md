@@ -138,3 +138,14 @@ dynamodb.getItem(params, function(err, data) {
     else ppJson(data);
 });
 ```
+
+
+## Dynamo-adminを使ってGUI操作
+
+https://www.npmjs.com/package/dynamodb-admin
+
+```
+$ npm install dynamodb-admin -g
+$ export DYNAMO_ENDPOINT=http://localhost:8000
+$ dynamodb-admin
+```
